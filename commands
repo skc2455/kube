@@ -1,0 +1,81 @@
+ghcr.io/helm/tiller:v2.16.12
+
+mkdir ~/.kube/config
+cd .kube/config
+
+
+history | grep kubectl
+
+  
+cd rancher-v2.4.10/
+rancher login -t token-dhqk6:g52kvd2tc7nx95lrznbzrdt2td42x8mclntqrvx9ck9w8j6dlfwzmw https://cma.mt.pi.n.mes.corp.hmrc.gov.uk/v3
+
+kubectl run nginx --image=nginx --restart=Never
+kubectl apply -f nginx.yaml -n onb-app
+kubectl get deployment
+kubectl get events
+kubectl get ns
+kubectl config get-clusters int-personal-mt-skc1
+kubectl describe pod tomcat-687c656ff5-q278q -n skc1 
+kubectl get pods -n skc1 | grep -i running | awk '{print $1,$3}'
+kubectl describe deployment nx-nginx -n skc1
+kubectl create namespace test-skc1
+kubectl get services -n skc1
+kubectl describe service nx-nginx -n skc1
+kubectl scale deployment nx-nginx --replicas=4 -n skc1
+kubectl edit deployment nx-nginx -n skc1
+kubectl delete deployment nx-nginx -n skc1
+kubectl create deployment nx-nginx --image=docker.artifactory.n.mes.corp.hmrc.gov.uk:80/nginx --dry-run=client -o yaml > n.yaml
+kubectl exec -it nx-nginx-5bcc64f548-nbcqj bash
+kubectl expose deployment nx-nginx --port=3307
+kubectl get svc
+kubectl delete service nx-nginx
+kubectl expose deployment nx-nginx --port=80 --type=NodePort
+kubectl config current-context
+kubectl config view
+kubectl get pods -o wide
+kubectl get events -w
+
+
+tar xzvf helm-v3.4.2-linux-amd64.tar.gz 
+whereis helm
+which helm
+helm version --short
+helm create onboarding
+helm install nginx1 onboarding/ --values onboarding/values.yaml
+helm init kubeconfig=/home/u.7860309/.kube/config
+export POD_NAME=$(/home/u.7860309/Downloads/k8s/kubectl get pods -l "app.kubernetes.io/name=onboarding,app.kubernetes.io/instance=nginx3" -o jsonpath="{.items[0].metadata.name}")
+helm package nginx/
+helm template nginx-0.1.tgz
+helm template test ./nginx
+
+whereis rancher
+rancher context switch
+kubectl get nodes
+kubectl get pods
+kubectl get namespaces
+rancher ps
+rancher nodes
+rancher namespaces
+rancher projects
+rancher --help
+rancher kubectl apply -f nginx.yaml -n onb-app
+rancher kubectl get pods -n onb-app
+rancher kubectl create ns test-sk1
+rancher kubectl get events -w
+rancher apps --help
+rancher apps install
+rancher app install -n test-srav ./nginx nx-test-sra
+
+sudo -s
+
+
+sudo docker login docker.artifactory.n.mes.corp.hmrc.gov.uk:80
+sudo docker pull ghcr.io/helm/tiller:v2.16.12
+sudo docker tag c11838703bf8 docker.artifactory.n.mes.corp.hmrc.gov.uk:80/tiller:1.0
+sudo docker images
+sudo docker pull docker.artifactory.n.mes.corp.hmrc.gov.uk:80/tiller:1.0
+sudo systemctl restart docker
+sudo systemctl status docker
+
+/etc/docker/daemon.json
