@@ -37,3 +37,41 @@ livenessProbe:
     port: 8080
   initialDelaySeconds: 15
   periodSeconds: 20
+=================================================
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+	name: web
+spec:
+	serviceName: "nginx"
+  replicas: 2
+  selector:
+  	matchLabels:
+      app: nginx
+  template:
+  	metadata:
+    	labels:
+      	app: nginx
+		spec:
+    	containers:
+      - name: nginx
+      	image: k8s.gcr.io/nginx-slim:0.8
+        ports:
+        - containerPort: 80
+        	name: web
+        readinessProbe:
+        	initialDelaySeconds: 1
+       		periodSeconds: 2
+          timeoutSeconds: 1
+          successThreshold: 1
+          failureThreshold: 1
+          httpGet:
+          	host:
+            scheme: HTTP
+            path: /
+            httpHeaders:
+            - name: Host
+            value: nginxapp.com
+            port: 80
