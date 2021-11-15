@@ -75,3 +75,16 @@ spec:
             - name: Host
             value: nginxapp.com
             port: 80
+
+STARTUP PROBE
+------------------
+startupProbe:
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          timeoutSeconds: 1
+          successThreshold: 1
+          failureThreshold: 1
+          exec:
+            command:
+            - cat
+            - /etc/nginx/nginx.conf
