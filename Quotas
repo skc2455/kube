@@ -1,0 +1,16 @@
+Create a sample namespace
+
+create a resource quota
+
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: pod-demo
+spec:
+  hard:
+    pods: "2"
+    
+    
+   kubectl get resourcequota pod-demo --namespace=test-srav1 --output=yaml
+
+ 
