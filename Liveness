@@ -27,3 +27,13 @@ livenessProbe:
     port: 8080
   initialDelaySeconds: 3
   periodSeconds: 3
+
+
+PORT
+--------
+
+livenessProbe:
+  tcpSocket:
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 20
