@@ -1,0 +1,43 @@
+helm search
+helm create nginx
+helm get manifest nginx
+helm template nginx/
+helm package nginx
+helm install --namespace=test-srav --name=nginx nginx/
+helm get notes nginx
+helm status nginx
+helm delete nginx --purge
+helm list
+helm lint
+
+helm repo list
+helm repo add nginx add
+help push nginx/ stable
+helm repo upgarde
+helm search repo stable
+helm install nginxroll nginx/
+helm repo remove nginx
+
+
+helm history nginx
+helm upgarde nginx nginx/
+helm rollback nginx 1
+
+kubectl scale deployment nginx --replicas=3
+
+kubectl config set-context $(kubectl config current-context) --namespace=test-srav
+
+kubectl set image deployment nx1 -n test-srav nginx=nginx:latest
+kubectl rollout history deployment nx1 -n test-srav
+kubectl rollout history deployment nx1 -n test-srav --revision=4
+kubectl rollout undo deployment nx1 -n test-srav --to-revision=4
+
+
+roolout
+liveness probe readiness probe startup probe
+
+requirements.yaml
+dependencies: terrofrom, rabbitmq, jobscheduler, antivirous, mysql....
+name- name of the chart
+version - version of the chat
+repository - repo url for chart
