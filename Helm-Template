@@ -1,0 +1,13 @@
+
+{{-with }}  Restricted to set of values, Not build in objected taken. {{ $relName }} to use build in objects.
+_helpers.tpl - multiple templates in the same file.name to it and use it elsewhere.
+{{- define}}  {{- end}} and use it as {{- template}} or {{- include}} to use nindent
+global:  common global value across the charts and its sub-charts, 
+         it would be difficult to inject or override the value for each sub chart
+ 
+upper -upppler letter
+quote - for ""
+now - current time stamp
+default - for default value
+if - condition
+range - pick the required values, and do whatever pipeline operation I wanted
