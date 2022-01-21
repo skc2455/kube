@@ -1,0 +1,14 @@
+ 1051  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/devops/helmcharts/proxy.git
+ 1064  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/devops/helmcharts/proxy.git
+ 1070  curl -s http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/repos/schidurala/devops/helmcharts/proxy/branches
+ 1072  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/projects/
+ 1075  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/projects/
+ 1078  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/projects/ | jq '.[].id'
+ 1079  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/projects/ | jq '.[].id' | wc -l
+ 1080  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/projects/ | jq
+ 1081  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/projects/groups/ | jq
+ 1082  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/groups/ | jq
+ 1083  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/groups/ | jq '.[].name'
+ 1084  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/projects/506/repository/branches | jq
+ 1085  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/groups/ | jq
+ 1086  curl http://gitlab.services.eis.n.mes.corp.hmrc.gov.uk/api/v4/projects/307/repository/branches | jq
