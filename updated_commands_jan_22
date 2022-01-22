@@ -7,3 +7,21 @@ curl --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/
 100  1308  100  1308    0     0   2144      0 --:--:-- --:--:-- --:--:--  2140
 "First-Group"
 "First-SubGroup"
+
+https://stackoverflow.com/questions/30483314/gitlab-api-how-to-get-last-commit-logs-tree
+
+pr="PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9"
+ex=$(curl -s --header $pr https://gitlab.com/api/v4/groups/ | jq .[].parent_id)
+echo $ex
+#for gr in $ex; doi
+echo 1
+proj=$(curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/projects/ | jq .[].id)
+echo $proj
+for p in $proj; do
+	echo 2
+	branch_list=$(curl -s --header $pr https://gitlab.com/api/v4/projects/$p/repository/branches | jq .[].name)
+	echo $branch_list
+	echo 3
+done	
+echo 4
+
