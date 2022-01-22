@@ -1,0 +1,9 @@
+curl --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/groups/
+
+
+curl --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/groups/ | jq .[].name
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1308  100  1308    0     0   2144      0 --:--:-- --:--:-- --:--:--  2140
+"First-Group"
+"First-SubGroup"
