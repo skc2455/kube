@@ -1,0 +1,26 @@
+pr="PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9"
+pd=`date +'%s'` 
+echo "today date in sec --> "$pd
+gid=$(curl -s --header $pr https://gitlab.com/api/v4/groups/ | jq .[].id)
+echo 'groups id are' $gid
+for p in $gid; do
+projects=$(curl -s --header $pr https://gitlab.com/api/v4/groups/$p/projects | jq .[].id)
+echo "project id for groups "  $projects
+    for br in $projects; do
+	    br_name=$(curl -s --header $pr https://gitlab.com/api/v4/projects/$br/repository/branches | jq .[].name)
+	    echo "br names are " $br_name
+	    branches=$(curl -s --header $pr https://gitlab.com/api/v4/projects/$br/repository/branches | jq .[].commit.committed_date)
+	    #echo $branches
+	    update=$(echo $branches | cut -d'"' -f 2)
+	    #echo $update
+	    l_date=$(date -d $update +%s)
+	    #echo $l_date
+	    nod=$(( ($pd - $l_date)/(606024) )) 
+	    #echo $nod
+		if [ $nod -eq 0 ] ; then
+		   	
+		echo "all branches are latest commits" "--->" $br_name 
+		fi
+	     
+    done	    
+done
