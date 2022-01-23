@@ -16,3 +16,67 @@ numberofdays=$(( ($presentdate - $last_updated_date_sec)/(606024) ))
 if [ $numberofdays -gt 60 ] ; then 
 echo "Branch $api_branch_name is updated $numberofdays days back" 
 fi done
+========================================================================================================================================
+
+========================================================================================================================================
+
+curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/projects/$p/repository/branches | jq .[].name
+
+curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/projects/33054553/repository/commits | jq .[].committed_date | cut -d'"' -f 2
+
+pd=`date +'%s'`
+echo $pd
+commit=$(curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/projects/33054553/repository/commits | jq .[].committed_date | cut -d'"' -f 2)
+for c in $commit; do
+	last_updated_date_sec=$(date -d $c +%s)
+	echo $last_updated_date_sec
+	nodays=$(( (pd - $last_updated_date_sec)/(606024) ))
+	echo $nodays
+if [ $nodays -gt 60 ] ; then
+	echo  
+
+done
+
+-------------------------------------
+pr="PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9"
+ex=$(curl -s --header $pr https://gitlab.com/api/v4/groups/ | jq .[].parent_id)
+echo $ex
+pd=`date +'%s'`
+echo $pd
+
+#for gr in $ex; doi
+echo 1
+proj=$(curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/projects/ | jq .[].id)
+echo $proj
+for p in $proj; do
+	echo 2
+	branch_list=$(curl -s --header $pr https://gitlab.com/api/v4/projects/$p/repository/branches | jq .[].name)
+	commit=$(curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/projects/33054553/repository/commits | jq .[].committed_date | cut -d'"' -f 2)
+	echo $commit
+	echo $branch_list
+	echo 3
+done	
+echo 4
+------------------------------
+Latest
+
+curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/groups/
+curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/groups/ | jq .[].id
+15676639
+15676665
+15710778
+15710782
+
+curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/groups/15710782/projects | jq 
+
+curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/groups/15710782/projects | jq .[].name
+
+curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/groups/15710782/projects | jq .[].id
+33043112
+
+curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/projects/33043112/repository/branches | jq .[].name
+
+ curl -s --header "PRIVATE-TOKEN:glpat-yK34ZVtrEAaP4j6XVUn9" https://gitlab.com/api/v4/projects/33043112/repository/branches | jq .[].commit.committed_date
+"2022-01-22T11:34:53.000+00:00"
+
+
