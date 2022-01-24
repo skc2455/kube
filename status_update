@@ -2,3 +2,14 @@ Using the gitlab api, I am able to list all the groups and using the group id --
 
 Using the projects id , pulled the branches and listed the old/unused branches.
 Here, I have considered old/unused branches as the last committed date more than 90 days, need confirmation on this --> can we go ahead with this
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+We can implement using a user plugin,you can use our artifactCleanup.groovy user plugin available in our public GitHub repository.
+This plugin can be executed manually with cURL or scheduled with a cron expression to cleanup artifacts not downloaded in a set period of time.
+
+Artifactory Artifact Cleanup User Plugin
+This plugin deletes all artifacts that have not been downloaded for the past n time units, which is by default 1 month.
+It can be run manually from the REST API, or automatically as a scheduled job.
+
+I dont have enough privileges for the resgistry. Please provide the write access.
