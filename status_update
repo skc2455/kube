@@ -1,0 +1,4 @@
+Using the gitlab api, I am able to list all the groups and using the group id --> pulled all the projects.
+
+Using the projects id , pulled the branches and listed the old/unused branches.
+Here, I have considered old/unused branches as the last committed date more than 90 days, need confirmation on this --> can we go ahead with this
