@@ -1,0 +1,50 @@
+
+CURRENT_DOCKER_FILE
+===============================
+FROM python:3.5-buster
+ADD . .
+ENV FLASK_APP=app.py
+RUN pip install -r requirements.txt
+CMD flask run --port 7777
+
+UPDATED_DOCKER_FILE
+--------------------------------------------------
+Hello Fido,
+
+Please follow the below steps for each step with explanation
+
+#start from base
+1.FROM python:3.5-buster
+
+2.LABEL maintainer="Your Name <emailaddress@provider.com>"
+Please add the details of label for best practices
+
+3.RUN apt-get update -y && apt-get install -y python-pip python-dev
+apt-get update downloads the package lists from the repositories and "updates" them to get information on the 
+newest versions of packages and their dependencies. It will do this for all repositories and PPAs
+
+4.COPY ./requirements.txt /app/requirements.txt
+We need to copy the requirements.txt first to leverage Docker cache
+
+5.WORKDIR /app
+Create a folder for workdir isolated to it
+
+6.RUN pip install -r requirements.txt
+
+7.COPY . /app
+copy the app folder to current dir
+
+8.CMD [ "python", "./app.py" ]
+Execute using the python script file python ./app.py
+
+================================================================
+Post that
+-----------
+setup code and configuration of a Flask application on docker. 
+Now execute the below-mentioned docker command to install and run the sample application.
+
+$docker build -t flask:latest
+
+$docker run -p 7777:7777 flask
+
+$docker ps -a
