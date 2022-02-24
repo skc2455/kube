@@ -12,7 +12,7 @@ We have TAT (turn around time) for PROD (6 hrs), PRE-PROD (12 hrs), UAT (1 day) 
 
 We have dedicated resources(I mean team members) allocated for new projects getting onboarded to check the incoming traffic and work accordingly.
 ---------------------------------------------------------------------------
-How do you support and your inputs to the team ?
+How do you support and your inputs to the team ? 
 
 For collecting the logs and metrics , management recommended one of the tools called dynatrace which I have installed on UAT on around 6 servers and collected the logs and observed the kubernetes cluster for few days, which i found few results.
 
@@ -38,3 +38,24 @@ Intermediate 2
 Root 
 
 The intermediate 1 certificate was missing from their end, post installing all the certs it worked
+
+-----------------------------------------------------------------------------------------------------------
+
+CV
+
+I am working as a Devops Engineer, in which I had the tech stack like jenkins, ansible, docker, kubernetes and all the linux based servers.
+Worked on few AWS services like EC2, Autoscaling, S3, Cloud formation templates, VPC, Ses, SQS, EBS, Glacier.
+
+I have created pipeline based jobs in jenkins for continous integration which has code coverage and code testing plugins involved.
+We have pipelines for all the env like pre-prod, prod and dev and UAT.
+Most of the servers are provisioned using ansible and cloud formation on aws servers.
+
+I have implemented automation scripts for health check of the cluster using shell :
+Checking memory and cpu utilization
+Node disk usage
+High peak cpu utilization
+Clearing the unused docker images in the cluster servers.
+
+I deal with differnet applications hosted on the platform with the JIRA platform, we have sprint for every 15 days and I own any of the story in that.
+Story --> a task to be performed as per the schedule and update in the story
+
