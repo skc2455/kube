@@ -1,0 +1,40 @@
+How do you handle priority based scenario for different projects ?
+We are using  a JIRA ticketing tool where all the individual projects will be raising their concerns and issues.
+
+We have catergorised it as
+
+Issues
+Improvements
+Maintenance
+ 
+For issues, we have labels L1,L2,L3 and we have designated resource allocated for differnet tickets.
+We have TAT (turn around time) for PROD (6 hrs), PRE-PROD (12 hrs), UAT (1 day) in this way , we will manage.
+
+We have dedicated resources(I mean team members) allocated for new projects getting onboarded to check the incoming traffic and work accordingly.
+---------------------------------------------------------------------------
+How do you support and your inputs to the team ?
+
+For collecting the logs and metrics , management recommended one of the tools called dynatrace which I have installed on UAT on around 6 servers and collected the logs and observed the kubernetes cluster for few days, which i found few results.
+
+1. Overall cluster utilization increased to 80%, previosuly it was in between 40 to 55%.
+2. Some of applications were running quite slow which has the EDL jobs in their applications.
+3. Since it is using high components of cluster, I submitted all the details with the metrics and telemetry for the cluster.
+Now we are exploring for other tools like apache kafka 
+
+Telemetry --> process of recording the behaviour of your systems and collecting the metrics of the platform.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Major Issues solved 
+I work in all the environments like UAT, Preprod, Dev, Production.
+
+Since all the platform is based on security, we have all the certificates installed from the endpoint applications which calls our api.
+There was one issue where certificate was provided from  one of the applications but the app was still down, 
+
+I checked and troubleshooted that one of the chain certificates were missing ,
+We will have
+
+Main
+Intermediate 1
+Intermediate 2
+Root 
+
+The intermediate 1 certificate was missing from their end, post installing all the certs it worked
